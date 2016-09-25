@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/mnt/Datos/Libros/Programación/POO/ContactsBook/src/BusinessLogic/ContactsBook.java</file>
-            <file>file:/mnt/Datos/Libros/Programación/POO/ContactsBook/src/contactsbook/ContactsBook.java</file>
-            <file>file:/mnt/Datos/Libros/Programación/POO/ContactsBook/src/UI/ContactsBookUI.java</file>
-            <file>file:/mnt/Datos/Libros/Programación/POO/ContactsBook/src/Data/Contact.java</file>
+            <file>file:/home/nicolas/NetBeansProjects/ContactsBook/src/UI/ContactsBookUI.java</file>
+            <file>file:/home/nicolas/NetBeansProjects/ContactsBook/src/BusinessLogic/ContactsBook.java</file>
+            <file>file:/home/nicolas/NetBeansProjects/ContactsBook/src/Data/Contact.java</file>
         </group>
     </open-files>
 </project-private>
