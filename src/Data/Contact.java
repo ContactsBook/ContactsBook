@@ -12,6 +12,10 @@ public class Contact {
     private long telefonoMovil;
     private String direccion;
 
+    public Contact() {
+        
+    }
+  
     public Contact(String nombre, String apellido, HashSet<String> correosElectronicos, int telefonoFijo, long telefonoMovil, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
