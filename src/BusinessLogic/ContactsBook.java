@@ -3,8 +3,9 @@ package BusinessLogic;
 import Data.Contact;
 import UI.ContactsBookUI;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+
+
+
 
 public class ContactsBook {
 
@@ -60,13 +61,14 @@ public class ContactsBook {
         Contact newContact;
         newContact = ContactsBookUI.crearContacto();
         listaContactos.put(key, newContact);
-
     }
+
+    
 
     public static void removeContact(HashMap<String, Contact> listaContactos, String key) {
         Contact deletedContact = listaContactos.remove(key);
     }
-
+    
     public static void updateContact() {
 
     }
