@@ -28,7 +28,7 @@ public class ContactsBook {
                     break;
                 case 2:
                     String key = String.valueOf(ContactsBookUI.pedirInt());
-                    removeContact(listaContactos, key);
+                    removeContact(listaContactos);
                     break;
                 case 3:
                     updateContact(listaContactos);
@@ -62,15 +62,16 @@ public class ContactsBook {
 
     
 
-    public static void removeContact(HashMap<String, Contact> contactos, String key) {
+    public static void removeContact(HashMap<String, Contact> contactos) {
+
+        ContactsBookUI.recorreImprimeKeys(contactos);
+        ContactsBookUI.paraBorrar(contactos);
         
-        ContactsBookUI.verificaDisponibilidad(contactos);
-        
-        Contact deletedContact = contactos.remove(key);
     }
     
     public static void updateContact(HashMap<String, Contact> contactos) {
         ContactsBookUI.recorreImprimeKeys(contactos);
+        ContactsBookUI.preguntaPorMasUpdate(contactos);
     }
 
     public static void printAllContacts(HashMap<String, Contact> contactos) {
