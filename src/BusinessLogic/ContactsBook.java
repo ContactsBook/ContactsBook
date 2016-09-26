@@ -3,8 +3,6 @@ package BusinessLogic;
 import Data.Contact;
 import UI.ContactsBookUI;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 public class ContactsBook {
 
