@@ -4,9 +4,6 @@ import Data.Contact;
 import UI.ContactsBookUI;
 import java.util.HashMap;
 
-
-
-
 public class ContactsBook {
 
     //static HashMap<String,Contact> contacts;
