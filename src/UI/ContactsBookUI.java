@@ -21,10 +21,11 @@ public class ContactsBookUI {
 
     public static void imprimeOpciones() {
         System.out.println("¿Qué desea hacer?");
-        System.out.print("[1] Agregar \n[2] Eliminar \n[3] Actualizar \n[4] Mostrar Todos \n[5] Mostrar Uno \n[6] Salir\n");
+        System.out.print("[1] Agregar \n[2] Eliminar \n[3] Actualizar \n[4] Mostrar Todos \n[5] Mostrar Keys \n[6] Salir\n");
     }
 
     public static int pedirInt() {
+        System.out.println("Ingrese un número");
         Scanner entrada = new Scanner(System.in);
         int opcion = entrada.nextInt();
         return opcion;
@@ -84,14 +85,50 @@ public class ContactsBookUI {
         System.out.println("Por  favor ingrese una opcion válida");
     }
 
-    public static void recorreImprime(HashMap<String,Contact> contactos) {
-        if(contactos.isEmpty()){
-            System.out.println("No hay contactos que mostrar");
+    public static boolean verificaDisponibilidad(HashMap<String, Contact> contactos) {
+        boolean var = contactos.isEmpty();
+        return var;
+
+    }
+
+    public static void recorreImprimeContactos(HashMap<String, Contact> contactos) {
+        if (verificaDisponibilidad(contactos)) {
+            System.out.println("No hay contactos disponibles");
+        } else {
+            Iterator it = contactos.entrySet().iterator();
+            System.out.println("Su lista de contactos es: ");
+
+            while (it.hasNext()) {
+                Map.Entry e = (Map.Entry) it.next();
+                System.out.println(e.getValue());
+            }
         }
-        Iterator it = contactos.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry e = (Map.Entry) it.next();
-            System.out.println("Key: " + e.getKey() + " " + e.getValue());
+        System.out.println("");
+    }
+
+    public static void recorreImprimeKeys(HashMap<String, Contact> contactos) {
+        if (verificaDisponibilidad(contactos)) {
+            System.out.println("No hay contactos disponibles");
+        } else {
+            Iterator it = contactos.entrySet().iterator();
+            System.out.println("Su lista de Keys es : ");
+            while (it.hasNext()) {
+                Map.Entry e = (Map.Entry) it.next();
+                System.out.println("Key: " + e.getKey());
+            }
+        }
+        System.out.println("");
+    }
+
+    public static void preguntaPorMas(HashMap<String, Contact> contactos) {
+        if (contactos.isEmpty()) {
+            //System.out.println("");
+        } else {
+            System.out.println("¿Quiere ver la info de algún contacto? \nIngrese la key: ");
+            String opcion = pedirCadena();
+            Contact calledContact = contactos.get(opcion);
+            System.out.print("El contacto que ha pedido con la key: " + opcion + " es : ");
+            printContact(calledContact);
         }
     }
 }

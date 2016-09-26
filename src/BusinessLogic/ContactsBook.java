@@ -31,13 +31,13 @@ public class ContactsBook {
                     removeContact(listaContactos, key);
                     break;
                 case 3:
-                    updateContact();
+                    updateContact(listaContactos);
                     break;
                 case 4:
                     printAllContacts(listaContactos);
                     break;
                 case 5:
-                    printContactsKeys();
+                    printContactsKeys(listaContactos);
                     break;
                 case 6:
                     control = false;
@@ -52,32 +52,37 @@ public class ContactsBook {
     }
 
 /////////////////////////////////////////////////////////////
-    public static void addContact(HashMap<String, Contact> listaContactos) {
+    public static void addContact(HashMap<String, Contact> contactos) {
         contador++;
         String key = String.valueOf(contador);
         Contact newContact;
         newContact = ContactsBookUI.crearContacto();
-        listaContactos.put(key, newContact);
+        contactos.put(key, newContact);
     }
 
     
 
-    public static void removeContact(HashMap<String, Contact> listaContactos, String key) {
-        Contact deletedContact = listaContactos.remove(key);
+    public static void removeContact(HashMap<String, Contact> contactos, String key) {
+        
+        ContactsBookUI.verificaDisponibilidad(contactos);
+        
+        Contact deletedContact = contactos.remove(key);
     }
     
-    public static void updateContact() {
-
+    public static void updateContact(HashMap<String, Contact> contactos) {
+        ContactsBookUI.recorreImprimeKeys(contactos);
     }
 
     public static void printAllContacts(HashMap<String, Contact> contactos) {
 
-        ContactsBookUI.recorreImprime(contactos);
+        ContactsBookUI.recorreImprimeContactos(contactos);
 
     }
 
-    public static void printContactsKeys() {
+    public static void printContactsKeys(HashMap<String, Contact> contactos) {
 
+        ContactsBookUI.recorreImprimeKeys(contactos);
+        ContactsBookUI.preguntaPorMas(contactos);
     }
 
 }
