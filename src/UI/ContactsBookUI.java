@@ -21,7 +21,7 @@ public class ContactsBookUI {
         System.out.print("[1] Agregar \n[2] Eliminar \n[3] Actualizar \n[4] Mostrar Todos \n[5] Mostrar Uno \n[6] Salir\n");
     }
     
-    public static int validaOpciones(){
+    public static int pedirInt(){
         Scanner entrada = new Scanner(System.in);
         int opcion = entrada.nextInt();
         return opcion;
@@ -68,23 +68,15 @@ public class ContactsBookUI {
     
     public static HashSet crearListaCorreos(){
         HashSet<String> emails = new HashSet();
+               
+        System.out.print("Ingrese el número de correos a guardar: ");
+        int contador = pedirInt();
         
-        String email1;
-        String email2;
-        String email3;
-        
-        for (;;){
-            System.out.println("Escriba el e-mail del contacto");
-            email1 = pedirCadena();
-            
-            System.out.println("Escriba el e-mail del contacto");
-            email2 = pedirCadena();
-            
-            System.out.println("Escriba el e-mail del contacto");
-            email3 = pedirCadena();
-            
-            break;
+        for (int i = 1; i<=contador; i++){
+            System.out.println("Escriba el e-mail " +i+ " del contacto");
+            emails.add(pedirCadena());
         }
+        
         
         return emails;
     }
