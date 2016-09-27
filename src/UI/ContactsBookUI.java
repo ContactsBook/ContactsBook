@@ -37,13 +37,13 @@ public class ContactsBookUI {
         return cadena;
     }
 
-public static Contact crearContacto() {
+    public static Contact crearContacto() {
 
         Contact newContact;
 
         System.out.println("Escriba el nombre del contacto");
         String nombre = pedirCadena();
-              
+
         System.out.println("Escriba el apellido del contacto");
         String apellido = pedirCadena();
 
@@ -52,8 +52,9 @@ public static Contact crearContacto() {
 
         System.out.println("Escriba el telefono fijo del contacto");
         String fijoStr = pedirCadena();
+        
         int fijo = Integer.parseInt(fijoStr);
-        while (fijo<0){
+        while (fijo < 0) {
             System.out.println("Escriba un telefono fijo de contacto válido");
             fijoStr = pedirCadena();
             fijo = Integer.parseInt(fijoStr);
@@ -62,7 +63,7 @@ public static Contact crearContacto() {
         System.out.println("Escriba el telefono móvil del contacto");
         String movilStr = pedirCadena();
         long movil = Long.parseLong(movilStr);
-        while (movil<0){
+        while (movil < 0) {
             System.out.println("Escriba un telefono móvil de contacto válido");
             movilStr = pedirCadena();
             movil = Long.parseLong(movilStr);
@@ -81,24 +82,28 @@ public static Contact crearContacto() {
         HashSet<String> emails = new HashSet();
 
         System.out.print("Ingrese el número de correos a guardar: ");
-        int contador=0;
-        contador= pedirInt();
+        int contador = 0;
+        contador = pedirInt();
         for (int i = 1; i <= contador; i++) {
             System.out.println("Escriba el e-mail " + i + " del contacto");
             String cadena = pedirCadena();
-                        
-            for (int j=0; j<cadena.length(); j++){
-                
-                if(cadena.indexOf('@') != -1 && cadena.indexOf('.') != -1) {
-                    emails.add(cadena);
-                    j = cadena.length(); 
-                }else{
-                    System.out.println("El correo debe tener como mínimo un \'.\' y un \'@\'");
-                    System.out.println("Escriba el e-mail " + i + " del contacto");
-                    cadena = pedirCadena();
+            if (cadena.length()>11 && cadena.length()<25) {
+                for (int j = 0; j < cadena.length(); j++) {
+
+                    if (cadena.indexOf('@') != -1 && cadena.indexOf('.') != -1) {
+                        emails.add(cadena);
+                        j = cadena.length();
+                    } else {
+                        System.out.println("El correo debe tener como mínimo un \'.\' y un \'@\'");
+                        System.out.println("Escriba el e-mail " + i + " del contacto");
+                        cadena = pedirCadena();
+                    }
                 }
-            }         
-        
+            }else{
+                System.out.println("La longutud del correo no es aceptable, vuelva a intentarlo.\n");
+                crearListaCorreos();
+            }
+
         }
         return emails;
     }
@@ -165,7 +170,7 @@ public static Contact crearContacto() {
     }
 
     public static void paraBorrar(HashMap<String, Contact> contactos) {
-        
+
         if (contactos.isEmpty()) {
             //System.out.println("");
         } else {
@@ -174,7 +179,7 @@ public static Contact crearContacto() {
             Contact deletedContact = contactos.remove(key);
             boolean check = contactos.containsKey(key);
 
-            if (check==false){
+            if (check == false) {
                 System.out.println("Su contacto ha sido eliminado satisfactoriamente");
             }
         }
